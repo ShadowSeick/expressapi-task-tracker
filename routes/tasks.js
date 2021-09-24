@@ -69,7 +69,7 @@ router.patch('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const removedTask = await Task.deleteOne({ _id: req.params.id });
+        await Task.deleteOne({ _id: req.params.id });
         res.status(200).send('It has been deleted');
     } catch (err) {
         res.json({ message: err });
