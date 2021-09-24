@@ -11,6 +11,13 @@ const app = express();
 
 app.use(express.json());
 
+// Allow to be fetched as a origin control
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
+
 // ROUTES
 const tasksRoute = require('./routes/tasks');
 
